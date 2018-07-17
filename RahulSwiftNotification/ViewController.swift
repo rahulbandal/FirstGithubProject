@@ -12,6 +12,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let localNotification = UILocalNotification()
+        localNotification.fireDate = NSDate(timeIntervalSinceNow: 5) as Date
+        localNotification.alertBody = "new Blog Posted at iOScreator.com"
+        localNotification.timeZone = NSTimeZone.default
+        localNotification.applicationIconBadgeNumber = UIApplication.shared.applicationIconBadgeNumber + 1
+        
+        UIApplication.shared.scheduleLocalNotification(localNotification)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
